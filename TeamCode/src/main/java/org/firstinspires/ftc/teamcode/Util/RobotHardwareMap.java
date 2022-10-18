@@ -33,7 +33,7 @@ public class RobotHardwareMap {
         hardwareMap = hwMap;
 
         //Connect Motor
-        frontRightMotor = hardwareMap.get(DcMotor.class, "frontRightMotor");
+        frontRightMotor = hardwareMap.get(DcMotor.class, "front left motor");
         frontLeftMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor");
         backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor");
         backLeftMotor = hardwareMap.get(DcMotor.class, "backLeftMotor");

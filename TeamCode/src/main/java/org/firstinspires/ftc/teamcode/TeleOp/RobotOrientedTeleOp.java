@@ -26,7 +26,7 @@ public class RobotOrientedTeleOp extends LinearOpMode {
 
         double maxMotorSpeed = 0.8;
 
-        double maxPower = 0.0;
+        double maxPower;
 
         waitForStart();
 
@@ -35,6 +35,7 @@ public class RobotOrientedTeleOp extends LinearOpMode {
             strafe = gamepad1.left_stick_x;
             turn = gamepad1.right_stick_x;
 
+
             frontLeftPower = drive + strafe + turn;
             frontRightPower = drive - strafe - turn;
             backLeftPower = drive - strafe + turn;
@@ -42,7 +43,8 @@ public class RobotOrientedTeleOp extends LinearOpMode {
 
 
             if (Math.abs(frontLeftPower) > 1 || Math.abs(frontRightPower) > 1 || Math.abs(backLeftPower) > 1 || Math.abs(backRightPower) > 1){
-                maxPower = Math.max(frontLeftPower, Math.max(frontRightPower, Math.max(backLeftPower, backRightPower)));
+
+                maxPower = Math.max(Math.abs(frontLeftPower), Math.max(Math.abs(frontRightPower), Math.max(Math.abs(backLeftPower), Math.abs(backRightPower))));
 
                 //fix problem
                 frontLeftPower /= maxPower;
@@ -50,6 +52,8 @@ public class RobotOrientedTeleOp extends LinearOpMode {
                 backLeftPower /= maxPower;
                 backRightPower /= maxPower;
             }
+
+
 
 
             robot.frontLeftMotor.setPower(frontLeftPower * maxMotorSpeed);
