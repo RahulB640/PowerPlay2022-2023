@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Movement.ActiveLocation;
+import org.firstinspires.ftc.teamcode.Util.BasicAutoDriving;
 import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 
 
@@ -12,6 +13,7 @@ public class FieldOrientedTeleOp extends LinearOpMode {
 
     RobotHardwareMap robot = new RobotHardwareMap(hardwareMap);
 
+    BasicAutoDriving autoDriving = new BasicAutoDriving(robot.frontLeftMotor, robot.frontRightMotor, robot.backLeftMotor, robot.backRightMotor);
 
     @Override
     public void runOpMode() {
